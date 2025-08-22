@@ -1,71 +1,76 @@
-import React from "react";
-import { MapPin, Phone } from "lucide-react";
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QUICK sendvičara</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/lucide/dist/lucide.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+    body { margin:0; font-family:sans-serif; background:white; color:#222; }
+    header, footer { text-align:center; padding:1rem; }
+    header { border-bottom:2px solid #e53935; color:#e53935; }
+    h1 { font-size:2rem; }
+    section { padding:2rem; max-width:768px; margin:auto; }
+    h2 { color:#388e3c; }
+    h3 { color:#e53935; text-transform:uppercase; }
+    ul { list-style:none; padding:0; }
+    li { display:flex; justify-content:space-between; border-bottom:1px dotted #ccc; padding:0.25rem 0; }
+    a { color:#e53935; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
 
-const MENU = {
-  pice: [
-    { name: "Coca Cola", price: "150 RSD" },
-    { name: "Fanta", price: "150 RSD" },
-    { name: "Sprite", price: "150 RSD" },
-    { name: "Jogurt", price: "120 RSD" },
-    { name: "Voda", price: "100 RSD" }
-  ],
-  kalcone: [
-    { name: "Kalcone Šunka", desc: "Šunka, kačkavalj, sos", price: "250 RSD" },
-    { name: "Kalcone Kulen", desc: "Kulen, trapist, paprika", price: "280 RSD" }
-  ],
-  sendvici: [
-    { name: "Sendvič Beli", desc: "Bela kifla + izbor salata", price: "od 200 RSD" },
-    { name: "Sendvič Crni", desc: "Crna kifla + izbor salata", price: "od 220 RSD" }
-  ],
-  pica: [
-    { name: "Capricciosa", price: "Cela 950 RSD / Parče 150 RSD" }
-  ],
-  dezert: [
-    { name: "Mafin čokoladni", price: "180 RSD" },
-    { name: "Mafin vanila", price: "180 RSD" }
-  ]
-};
+  <script type="text/babel">
+    const MENU = {
+      pice: [{ name: "Coca Cola", price: "150 RSD" }, { name: "Fanta", price: "150 RSD" }, { name: "Sprite", price: "150 RSD" }, { name: "Jogurt", price: "120 RSD" }, { name: "Voda", price: "100 RSD" }],
+      kalcone: [{ name: "Kalcone Šunka", desc: "Šunka, kačkavalj, sos", price: "250 RSD" }, { name: "Kalcone Kulen", desc: "Kulen, trapist, paprika", price: "280 RSD" }],
+      sendvici: [{ name: "Sendvič Beli", desc: "Bela kifla + izbor salata", price: "od 200 RSD" }, { name: "Sendvič Crni", desc: "Crna kifla + izbor salata", price: "od 220 RSD" }],
+      pica: [{ name: "Capricciosa", price: "Cela 950 RSD / Parče 150 RSD" }],
+      dezert: [{ name: "Mafin čokoladni", price: "180 RSD" }, { name: "Mafin vanila", price: "180 RSD" }]
+    };
 
-export default function QuickSendvicaraSimple() {
-  return (
-    <main className="min-h-screen text-[#222] bg-white">
-      <header className="py-6 border-b border-[#e53935] text-center bg-white shadow-sm">
-        <h1 className="text-4xl font-extrabold tracking-tight text-[#e53935]">QUICK sendvičara</h1>
-        <div className="mt-2 flex flex-col md:flex-row gap-3 items-center justify-center text-[#388e3c]">
-          <div className="flex items-center gap-2"><MapPin className="w-5 h-5 text-[#e53935]"/>Višegradska 25, Beograd</div>
-          <a href="tel:+381113620700" className="flex items-center gap-2 font-semibold hover:underline text-[#e53935]">
-            <Phone className="w-5 h-5"/>011/3620-700
-          </a>
-        </div>
-      </header>
-
-      <section id="meni" className="py-16">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-extrabold tracking-tight text-center text-[#388e3c]">Meni</h2>
-
-          {Object.entries(MENU).map(([category, items]) => (
-            <div key={category} className="mt-12">
-              <h3 className="text-2xl font-bold mb-4 text-[#e53935] uppercase">{category}</h3>
-              <ul className="space-y-2">
-                {items.map((i) => (
-                  <li key={i.name} className="flex justify-between border-b border-dotted border-gray-300 pb-1">
-                    <span className="font-medium text-slate-800">
-                      {i.name}{i.desc ? ` – ${i.desc}` : ""}
-                    </span>
-                    <span className="text-slate-700">{i.price}</span>
-                  </li>
-                ))}
-              </ul>
+    function QuickSendvicaraSimple() {
+      return (
+        <main>
+          <header>
+            <h1>QUICK sendvičara</h1>
+            <div style={{ marginTop:'0.5rem', color:'#388e3c' }}>
+              <div>📍 Višegradska 25, Beograd</div>
+              <div><a href="tel:+381113620700">📞 011/3620-700</a></div>
             </div>
-          ))}
-        </div>
-      </section>
+          </header>
 
-      <footer className="border-t border-[#c8e6c9] bg-white">
-        <div className="max-w-4xl mx-auto px-4 py-8 text-sm text-[#555] text-center">
-          © {new Date().getFullYear()} QUICK sendvičara • Višegradska 25, Beograd • Tel: 011/3620-700
-        </div>
-      </footer>
-    </main>
-  );
-}
+          <section id="meni">
+            <h2>Meni</h2>
+            {Object.entries(MENU).map(([category, items]) => (
+              <div key={category} style={{ marginTop:'2rem' }}>
+                <h3>{category}</h3>
+                <ul>
+                  {items.map((i) => (
+                    <li key={i.name}>
+                      <span>{i.name}{i.desc ? ` – ${i.desc}` : ""}</span>
+                      <span>{i.price}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </section>
+
+          <footer>
+            © {new Date().getFullYear()} QUICK sendvičara • Višegradska 25, Beograd • Tel: 011/3620-700
+          </footer>
+        </main>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<QuickSendvicaraSimple />);
+  </script>
+</body>
+</html>
