@@ -20,6 +20,15 @@
     li { display:flex; justify-content:space-between; border-bottom:1px dotted #ccc; padding:0.25rem 0; }
     a { color:#e53935; text-decoration:none; }
     a:hover { text-decoration:underline; }
+    .notice { 
+      background:#fff3cd; 
+      color:#856404; 
+      padding:1rem; 
+      border:1px solid #ffeeba; 
+      text-align:center; 
+      font-weight:bold; 
+      font-size:1.2rem; 
+    }
   </style>
 </head>
 <body>
@@ -37,6 +46,9 @@
     function QuickSendvicaraSimple() {
       return (
         <main>
+          {/* Poruka da je sajt u izradi */}
+          <div className="notice">⚠️ SAJT JE U IZGRADI ⚠️</div>
+
           <header>
             <h1>QUICK sendvičara</h1>
             <div style={{ marginTop:'0.5rem', color:'#388e3c' }}>
