@@ -20,15 +20,6 @@
     li { display:flex; justify-content:space-between; border-bottom:1px dotted #ccc; padding:0.25rem 0; }
     a { color:#e53935; text-decoration:none; }
     a:hover { text-decoration:underline; }
-    .notice { 
-      background:#fff3cd; 
-      color:#856404; 
-      padding:1rem; 
-      border:1px solid #ffeeba; 
-      text-align:center; 
-      font-weight:bold; 
-      font-size:1.2rem; 
-    }
     .lang-btn-fixed {
       position: fixed;
       top: 1rem;
@@ -51,7 +42,7 @@
   <script type="text/babel">
     const MENU = {
       sr: {
-        pica: [{ name: "Pizza", price: "Parče 150 RSD / Cela 900 RSD " }],
+        pica: [{ name: "Pizza", price: "Cela 900 RSD / Parče 150 RSD" }],
         kalcone: [{ name: "Calzone", price: "220 RSD" }],
         stapici: [
           { name: "Feta štapić", price: "70 RSD" },
@@ -98,7 +89,7 @@
         ]
       },
       en: {
-        pica: [{ name: "Pizza", price: "Slice 150 RSD / Whole 950 RSD " }],
+        pica: [{ name: "Pizza", price: "Whole 950 RSD / Slice 150 RSD" }],
         kalcone: [{ name: "Calzone", price: "220 RSD" }],
         stapici: [
           { name: "Feta stick", price: "70 RSD" },
@@ -164,8 +155,6 @@
             {lang === "sr" ? "English" : "Srpski"}
           </button>
 
-          <div className="notice">⚠️ {lang === "sr" ? "SAJT JE U IZGRADI" : "SITE UNDER CONSTRUCTION"} ⚠️</div>
-
           <header>
             <h1>QUICK {lang === "sr" ? "sendvičara" : "sendvičara"}</h1>
             <div style={{ marginTop:'0.5rem', color:'#388e3c' }}>
@@ -179,7 +168,6 @@
             {ORDER.map((category) => {
               const items = MENU[lang][category];
 
-              // PICA i KALCONE - naslov + cena crna
               if (category === "pica" || category === "kalcone") {
                 const item = items[0];
                 return (
@@ -192,7 +180,6 @@
                 );
               }
 
-              // Ostale kategorije
               return (
                 <div key={category} style={{ marginTop:'2rem' }}>
                   <h3>{TITLES[lang][category]}</h3>
