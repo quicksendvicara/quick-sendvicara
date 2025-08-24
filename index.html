@@ -50,11 +50,8 @@
   <script type="text/babel">
     const MENU = {
       sr: {
-        pica: [{ name: "Capricciosa", price: "Cela 900 RSD / Parče 150 RSD" }],
-        kalcone: [
-          { name: "Kalcone Šunka", desc: "Šunka, kačkavalj, sos", price: "220 RSD" },
-          { name: "Kalcone Kulen", desc: "Kulen, trapist, paprika", price: "280 RSD" }
-        ],
+        pica: [{ name: "Pizza", price: "Cela 900 RSD / Parče 150 RSD" }],
+        kalcone: [{ name: "Calzone", price: "220 RSD" }],
         sendvici: [
           { name: "Sendvič Beli", desc: "Bela kifla + izbor salata", price: "od 70 RSD" },
           { name: "Sendvič Crni", desc: "Crna kifla + izbor salata", price: "od 70 RSD" }
@@ -67,37 +64,30 @@
           { name: "Pečurke salata", price: "50 RSD" },
           { name: "Goveđa salata", price: "60 RSD" },
           { name: "Ruska salata", price: "50 RSD" },
-          { name: "Pileća salata", price: "50 RSD" },
-          { name: "Zelena salata", price: "20 RSD" },
-          { name: "Paradajz", price: "20 RSD" },
-          { name: "Kiseli krastavac", price: "20 RSD" },
-          { name: "Jaja", price: "40 RSD" },
-          { name: "Kačkavalj", price: "70 RSD" },
-          { name: "Šunka", price: "60 RSD" },
-          { name: "Pršuta", price: "80 RSD" },
-          { name: "Kulen", price: "70 RSD" },
-          { name: "Ljuta šargarepa", price: "50 RSD" },
-          { name: "Pohovana piletina", price: "160 RSD" },
-          { name: "Pohovana tikvica", price: "80 RSD" }
+          { name: "Pileća salata", price: "50 RSD" }
         ],
         dezert: [
           { name: "Mafin čokoladni", price: "90 RSD" },
           { name: "Mafin voćni", price: "90 RSD" }
         ],
         pice: [
-          { name: "Coca Cola", price: "150 RSD" },
-          { name: "Fanta", price: "150 RSD" },
-          { name: "Sprite", price: "150 RSD" },
-          { name: "Jogurt", price: "120 RSD" },
-          { name: "Voda", price: "100 RSD" }
+          { name: "Voda gazirana 0,5", price: "70 RSD" },
+          { name: "Voda negazirana 0,5", price: "70 RSD" },
+          { name: "Sok negazirani", price: "120 RSD" },
+          { name: "Coca Cola 0,5", price: "120 RSD" },
+          { name: "Fanta 0,5", price: "120 RSD" },
+          { name: "Balans jogurt", price: "90 RSD" },
+          { name: "Jogurt u čašici", price: "50 RSD" },
+          { name: "Čokoladno mleko", price: "80 RSD" }
+        ],
+        stapici: [
+          { name: "Feta stapic", price: "70 RSD" },
+          { name: "Kulen-feta stapic", price: "80 RSD" }
         ]
       },
       en: {
-        pica: [{ name: "Capricciosa", price: "Whole 950 RSD / Slice 150 RSD" }],
-        kalcone: [
-          { name: "Calzone Ham", desc: "Ham, cheese, sauce", price: "220 RSD" },
-          { name: "Calzone Kulen", desc: "Kulen (spicy sausage), cheese, pepper", price: "280 RSD" }
-        ],
+        pica: [{ name: "Pizza", price: "Whole 950 RSD / Slice 150 RSD" }],
+        kalcone: [{ name: "Calzone", price: "220 RSD" }],
         sendvici: [
           { name: "White Sandwich", desc: "White bun + choice of salad", price: "from 70 RSD" },
           { name: "Dark Sandwich", desc: "Dark bun + choice of salad", price: "from 70 RSD" }
@@ -110,37 +100,33 @@
           { name: "Mushroom salad", price: "50 RSD" },
           { name: "Beef salad", price: "60 RSD" },
           { name: "Russian salad", price: "50 RSD" },
-          { name: "Chicken salad", price: "50 RSD" },
-          { name: "Green salad", price: "20 RSD" },
-          { name: "Tomato", price: "20 RSD" },
-          { name: "Pickles", price: "20 RSD" },
-          { name: "Eggs", price: "40 RSD" },
-          { name: "Cheese", price: "70 RSD" },
-          { name: "Ham", price: "60 RSD" },
-          { name: "Smoked pork", price: "80 RSD" },
-          { name: "Kulen (spicy)", price: "70 RSD" },
-          { name: "Spicy carrot", price: "50 RSD" },
-          { name: "Fried chicken", price: "160 RSD" },
-          { name: "Fried zucchini", price: "80 RSD" }
+          { name: "Chicken salad", price: "50 RSD" }
         ],
         dezert: [
           { name: "Chocolate muffin", price: "90 RSD" },
           { name: "Fruit muffin", price: "90 RSD" }
         ],
         pice: [
-          { name: "Coca Cola", price: "150 RSD" },
-          { name: "Fanta", price: "150 RSD" },
-          { name: "Sprite", price: "150 RSD" },
-          { name: "Yogurt", price: "120 RSD" },
-          { name: "Water", price: "100 RSD" }
+          { name: "Sparkling water 0.5", price: "70 RSD" },
+          { name: "Still water 0.5", price: "70 RSD" },
+          { name: "Juice (unsweetened)", price: "120 RSD" },
+          { name: "Coca Cola 0.5", price: "120 RSD" },
+          { name: "Fanta 0.5", price: "120 RSD" },
+          { name: "Balance yogurt", price: "90 RSD" },
+          { name: "Yogurt in cup", price: "50 RSD" },
+          { name: "Chocolate milk", price: "80 RSD" }
+        ],
+        stapici: [
+          { name: "Feta stick", price: "70 RSD" },
+          { name: "Kulen-feta stick", price: "80 RSD" }
         ]
       }
     };
 
-    const ORDER = ["pica", "kalcone", "sendvici", "salate", "dezert", "pice"];
+    const ORDER = ["pica", "kalcone", "sendvici", "salate", "dezert", "pice", "stapici"];
     const TITLES = {
-      sr: { pica:"PICA", kalcone:"KALCONE", sendvici:"SENDVIČI", salate:"SALATE", dezert:"DEZERT", pice:"PIĆE", cenovnik:"CENOVNIK" },
-      en: { pica:"PIZZA", kalcone:"CALZONE", sendvici:"SANDWICHES", salate:"SALADS", dezert:"DESSERT", pice:"DRINKS", cenovnik:"PRICE LIST" }
+      sr: { pica:"PICA", kalcone:"KALCONE", sendvici:"SENDVIČI", salate:"SALATE", dezert:"DEZERT", pice:"PIĆE", stapici:"ŠTAPIĆI", cenovnik:"CENOVNIK" },
+      en: { pica:"PIZZA", kalcone:"CALZONE", sendvici:"SANDWICHES", salate:"SALADS", dezert:"DESSERT", pice:"DRINKS", stapici:"STICKS", cenovnik:"PRICE LIST" }
     };
 
     function QuickSendvicaraSimple() {
@@ -148,7 +134,6 @@
 
       return (
         <main>
-          {/* Dugme fiksirano u gornjem desnom uglu */}
           <button
             className="lang-btn-fixed"
             onClick={() => setLang(lang === "sr" ? "en" : "sr")}
