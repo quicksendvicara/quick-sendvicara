@@ -6,7 +6,6 @@
   <title>QUICK sendvičara</title>
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/lucide/dist/lucide.min.js"></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <style>
     body { margin:0; font-family:sans-serif; background:white; color:#222; }
@@ -29,6 +28,20 @@
       font-weight:bold; 
       font-size:1.2rem; 
     }
+    .lang-btn-fixed {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid #e53935;
+      border-radius: 6px;
+      background: white;
+      cursor: pointer;
+      font-weight: bold;
+      color: #e53935;
+      z-index: 1000;
+    }
+    .lang-btn-fixed:hover { background:#ffe5e5; }
   </style>
 </head>
 <body>
@@ -36,34 +49,128 @@
 
   <script type="text/babel">
     const MENU = {
-      pice: [{ name: "Coca Cola", price: "150 RSD" }, { name: "Fanta", price: "150 RSD" }, { name: "Sprite", price: "150 RSD" }, { name: "Jogurt", price: "120 RSD" }, { name: "Voda", price: "100 RSD" }],
-      kalcone: [{ name: "Kalcone Šunka", desc: "Šunka, kačkavalj, sos", price: "250 RSD" }, { name: "Kalcone Kulen", desc: "Kulen, trapist, paprika", price: "280 RSD" }],
-      sendvici: [{ name: "Sendvič Beli", desc: "Bela kifla + izbor salata", price: "od 200 RSD" }, { name: "Sendvič Crni", desc: "Crna kifla + izbor salata", price: "od 220 RSD" }],
-      pica: [{ name: "Capricciosa", price: "Cela 950 RSD / Parče 150 RSD" }],
-      dezert: [{ name: "Mafin čokoladni", price: "180 RSD" }, { name: "Mafin vanila", price: "180 RSD" }]
+      sr: {
+        pica: [{ name: "Capricciosa", price: "Cela 950 RSD / Parče 150 RSD" }],
+        kalcone: [
+          { name: "Kalcone Šunka", desc: "Šunka, kačkavalj, sos", price: "250 RSD" },
+          { name: "Kalcone Kulen", desc: "Kulen, trapist, paprika", price: "280 RSD" }
+        ],
+        sendvici: [
+          { name: "Sendvič Beli", desc: "Bela kifla + izbor salata", price: "od 200 RSD" },
+          { name: "Sendvič Crni", desc: "Crna kifla + izbor salata", price: "od 220 RSD" }
+        ],
+        salate: [
+          { name: "Tuna salata", price: "200 RSD" },
+          { name: "Pečena paprika", price: "150 RSD" },
+          { name: "Italijanska salata", price: "200 RSD" },
+          { name: "Quick salata", price: "220 RSD" },
+          { name: "Pečurke salata", price: "180 RSD" },
+          { name: "Goveđa salata", price: "250 RSD" },
+          { name: "Pileća salata", price: "220 RSD" },
+          { name: "Zelena salata", price: "120 RSD" },
+          { name: "Paradajz", price: "120 RSD" },
+          { name: "Kiseli krastavci", price: "120 RSD" },
+          { name: "Jaja", price: "120 RSD" },
+          { name: "Kačkavalj", price: "150 RSD" },
+          { name: "Šunka", price: "150 RSD" },
+          { name: "Pečenica", price: "180 RSD" },
+          { name: "Kulen", price: "180 RSD" },
+          { name: "Ljuta šargarepa", price: "120 RSD" },
+          { name: "Pohovana piletina", price: "220 RSD" },
+          { name: "Pohovana tikvica", price: "180 RSD" }
+        ],
+        dezert: [
+          { name: "Mafin čokoladni", price: "180 RSD" },
+          { name: "Mafin vanila", price: "180 RSD" }
+        ],
+        pice: [
+          { name: "Coca Cola", price: "150 RSD" },
+          { name: "Fanta", price: "150 RSD" },
+          { name: "Sprite", price: "150 RSD" },
+          { name: "Jogurt", price: "120 RSD" },
+          { name: "Voda", price: "100 RSD" }
+        ]
+      },
+      en: {
+        pica: [{ name: "Capricciosa", price: "Whole 950 RSD / Slice 150 RSD" }],
+        kalcone: [
+          { name: "Calzone Ham", desc: "Ham, cheese, sauce", price: "250 RSD" },
+          { name: "Calzone Kulen (spicy sausage)", desc: "Kulen, cheese, pepper", price: "280 RSD" }
+        ],
+        sendvici: [
+          { name: "White Sandwich", desc: "White bun + choice of salad", price: "from 200 RSD" },
+          { name: "Dark Sandwich", desc: "Dark bun + choice of salad", price: "from 220 RSD" }
+        ],
+        salate: [
+          { name: "Tuna salad", price: "200 RSD" },
+          { name: "Roasted peppers", price: "150 RSD" },
+          { name: "Italian salad", price: "200 RSD" },
+          { name: "Quick salad", price: "220 RSD" },
+          { name: "Mushroom salad", price: "180 RSD" },
+          { name: "Beef salad", price: "250 RSD" },
+          { name: "Chicken salad", price: "220 RSD" },
+          { name: "Green salad", price: "120 RSD" },
+          { name: "Tomato", price: "120 RSD" },
+          { name: "Pickles", price: "120 RSD" },
+          { name: "Eggs", price: "120 RSD" },
+          { name: "Cheese", price: "150 RSD" },
+          { name: "Ham", price: "150 RSD" },
+          { name: "Smoked pork", price: "180 RSD" },
+          { name: "Kulen (spicy)", price: "180 RSD" },
+          { name: "Spicy carrot", price: "120 RSD" },
+          { name: "Fried chicken", price: "220 RSD" },
+          { name: "Fried zucchini", price: "180 RSD" }
+        ],
+        dezert: [
+          { name: "Chocolate muffin", price: "180 RSD" },
+          { name: "Vanilla muffin", price: "180 RSD" }
+        ],
+        pice: [
+          { name: "Coca Cola", price: "150 RSD" },
+          { name: "Fanta", price: "150 RSD" },
+          { name: "Sprite", price: "150 RSD" },
+          { name: "Yogurt", price: "120 RSD" },
+          { name: "Water", price: "100 RSD" }
+        ]
+      }
+    };
+
+    const ORDER = ["pica", "kalcone", "sendvici", "salate", "dezert", "pice"];
+    const TITLES = {
+      sr: { pica:"PICA", kalcone:"KALCONE", sendvici:"SENDVIČI", salate:"SALATE", dezert:"DEZERT", pice:"PIĆE", cenovnik:"CENOVNIK" },
+      en: { pica:"PIZZA", kalcone:"CALZONE", sendvici:"SANDWICHES", salate:"SALADS", dezert:"DESSERT", pice:"DRINKS", cenovnik:"PRICE LIST" }
     };
 
     function QuickSendvicaraSimple() {
+      const [lang, setLang] = React.useState("sr");
+
       return (
         <main>
-          {/* Poruka da je sajt u izradi */}
-          <div className="notice">⚠️ SAJT JE U IZGRADI ⚠️</div>
+          {/* Dugme fiksirano u gornjem desnom uglu */}
+          <button
+            className="lang-btn-fixed"
+            onClick={() => setLang(lang === "sr" ? "en" : "sr")}
+          >
+            {lang === "sr" ? "English" : "Srpski"}
+          </button>
+
+          <div className="notice">⚠️ {lang === "sr" ? "SAJT JE U IZGRADI" : "SITE UNDER CONSTRUCTION"} ⚠️</div>
 
           <header>
-            <h1>QUICK sendvičara</h1>
+            <h1>QUICK {lang === "sr" ? "sendvičara" : "Sandwich Bar"}</h1>
             <div style={{ marginTop:'0.5rem', color:'#388e3c' }}>
-              <div>📍 Višegradska 25, Beograd</div>
+              <div>📍 Višegradska 25, Belgrade</div>
               <div><a href="tel:+381113620700">📞 011/3620-700</a></div>
             </div>
           </header>
 
           <section id="meni">
-            <h2>Meni</h2>
-            {Object.entries(MENU).map(([category, items]) => (
+            <h2>{TITLES[lang].cenovnik}</h2>
+            {ORDER.map((category) => (
               <div key={category} style={{ marginTop:'2rem' }}>
-                <h3>{category}</h3>
+                <h3>{TITLES[lang][category]}</h3>
                 <ul>
-                  {items.map((i) => (
+                  {MENU[lang][category].map((i) => (
                     <li key={i.name}>
                       <span>{i.name}{i.desc ? ` – ${i.desc}` : ""}</span>
                       <span>{i.price}</span>
