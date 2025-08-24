@@ -175,19 +175,37 @@
 
           <section id="meni">
             <h2>{TITLES[lang].cenovnik}</h2>
-            {ORDER.map((category) => (
-              <div key={category} style={{ marginTop:'2rem' }}>
-                <h3>{TITLES[lang][category]}</h3>
-                <ul>
-                  {MENU[lang][category].map((i) => (
-                    <li key={i.name}>
-                      <span>{i.name}</span>
-                      <span>{i.price}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {ORDER.map((category) => {
+              const items = MENU[lang][category];
+
+              // PICA i KALCONE imaju naslov sa cenom, bez liste
+              if (category === "pica" || category === "kalcone") {
+                const item = items[0];
+                return (
+                  <div key={category} style={{ marginTop:'2rem' }}>
+                    <h3 style={{ display:'flex', justifyContent:'space-between' }}>
+                      {TITLES[lang][category]}
+                      <span>{item.price}</span>
+                    </h3>
+                  </div>
+                );
+              }
+
+              // Ostale kategorije normalno
+              return (
+                <div key={category} style={{ marginTop:'2rem' }}>
+                  <h3>{TITLES[lang][category]}</h3>
+                  <ul>
+                    {items.map((i) => (
+                      <li key={i.name}>
+                        <span>{i.name}</span>
+                        <span>{i.price}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
           </section>
 
           <footer>
