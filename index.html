@@ -229,7 +229,7 @@
         ]
       },
       en: {
-        pica: [{ name: "Pizza", price: "Slice 150 RSD / Whole 950 RSD" }],
+        pica: [{ name: "Pizza", price: "Slice 150 RSD / Whole 900 RSD" }],
         kalcone: [{ name: "Calzone", price: "220 RSD" }],
         stapici: [
           { name: "Feta stick", price: "70 RSD" },
@@ -277,7 +277,7 @@
       }
     };
 
-    const ORDER = ["pica","kalcone","stapici","sendvici","salate","dezert","pice"];
+    const ORDER = ["pica","kalcone","stapici","sendvici","dezert","pice"];
     const TITLES = {
       sr: {
         pica:"PICA", kalcone:"KALCONE", stapici:"ŠTAPIĆI", sendvici:"SENDVIČI",
@@ -299,7 +299,7 @@
           </button>
 
           <header>
-            <h1>QUICK {lang === "sr" ? "sendvičara" : "sandwich shop"}</h1>
+            <h1>QUICK {lang === "sr" ? "sendvičara" : "sendvičara"}</h1>
             <div style={{ marginTop:'0.5rem', color:'#388e3c' }}>
               <div>📍 Višegradska 25, Belgrade</div>
               <div><a href="tel:+381113620700">📞 011/3620-700</a></div>
@@ -336,18 +336,18 @@
                         : "Sandwiches are made with your choice of bun and toppings."}
                     </p>
 
-                    <h4 style={{ marginTop:'1rem', color:'#388e3c' }}>
+                    <h3 style={{ marginTop:'1rem', color:'#388e3c' }}>
                       {lang === "sr" ? "Kifla" : "Bun"}
-                    </h4>
+                    </h3>
                     <ul>
                       {kifle.map(i => (
                         <li key={i.name}><span>{i.name}</span><span>{i.price}</span></li>
                       ))}
                     </ul>
 
-                    <h4 style={{ marginTop:'1rem', color:'#388e3c' }}>
+                    <h3 style={{ marginTop:'1rem', color:'#388e3c' }}>
                       {lang === "sr" ? "Prilozi" : "Toppings"}
-                    </h4>
+                    </h3>
                     <ul>
                       {prilozi.map(i => (
                         <li key={i.name}><span>{i.name}</span><span>{i.price}</span></li>
