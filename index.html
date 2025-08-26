@@ -4,21 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QUICK sendvičara</title>
+
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
   <style>
-    body { margin:0; font-family:sans-serif; background:white; color:#222; }
-    header, footer { text-align:center; padding:1rem; }
-    header { border-bottom:2px solid #e53935; color:#e53935; }
+    body {
+      margin:0;
+      font-family:sans-serif;
+      background:white;
+      color:#222;
+    }
+    header, footer {
+      text-align:center;
+      padding:1rem;
+    }
+    header {
+      border-bottom:2px solid #e53935;
+      color:#e53935;
+    }
     h1 { font-size:2rem; }
-    section { padding:2rem; max-width:768px; margin:auto; }
+    section {
+      padding:2rem;
+      max-width:768px;
+      margin:auto;
+    }
     h2 { color:#388e3c; }
-    h3 { color:#e53935; text-transform:uppercase; display:flex; justify-content:space-between; align-items:center; }
-    h3 span.price { color:#222; font-weight:normal; font-size:1rem; }
-    ul { list-style:none; padding:0; margin-top:0.5rem; }
-    li { display:flex; justify-content:space-between; border-bottom:1px dotted #ccc; padding:0.25rem 0; }
-    a { color:#e53935; text-decoration:none; }
+    h3 {
+      color:#e53935;
+      text-transform:uppercase;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    h3 span.price {
+      color:#222;
+      font-weight:normal;
+      font-size:1rem;
+    }
+    ul {
+      list-style:none;
+      padding:0;
+      margin-top:0.5rem;
+    }
+    li {
+      display:flex;
+      justify-content:space-between;
+      border-bottom:1px dotted #ccc;
+      padding:0.25rem 0;
+    }
+    a {
+      color:#e53935;
+      text-decoration:none;
+    }
     a:hover { text-decoration:underline; }
     .lang-btn-fixed {
       position: fixed;
@@ -33,7 +72,9 @@
       color: #e53935;
       z-index: 1000;
     }
-    .lang-btn-fixed:hover { background:#ffe5e5; }
+    .lang-btn-fixed:hover {
+      background:#ffe5e5;
+    }
   </style>
 </head>
 <body>
@@ -53,14 +94,14 @@
           { name: "Crna kifla", price: "70 RSD" }
         ],
         salate: [
-          { name: "Šunka", price: "60 RSD" }, 
+          { name: "Šunka", price: "60 RSD" },
           { name: "Pršuta", price: "80 RSD" },
           { name: "Kulen", price: "70 RSD" },
-          { name: "Jaja", price: "40 RSD" }, 
+          { name: "Jaja", price: "40 RSD" },
           { name: "Kačkavalj", price: "70 RSD" },
-          { name: "Zelena salata", price: "20 RSD" }, 
-          { name: "Paradajz", price: "20 RSD" }, 
-          { name: "Kiseli krastavac", price: "20 RSD" }, 
+          { name: "Zelena salata", price: "20 RSD" },
+          { name: "Paradajz", price: "20 RSD" },
+          { name: "Kiseli krastavac", price: "20 RSD" },
           { name: "Pohovana piletina", price: "160 RSD" },
           { name: "Pohovana tikvica", price: "80 RSD" },
           { name: "Kvik salata", price: "50 RSD" },
@@ -100,14 +141,14 @@
           { name: "Dark bun", price: "70 RSD" }
         ],
         salate: [
-          { name: "Ham", price: "60 RSD" }, 
+          { name: "Ham", price: "60 RSD" },
           { name: "Prosciutto", price: "80 RSD" },
           { name: "Kulen (spicy sausage)", price: "70 RSD" },
-          { name: "Eggs", price: "40 RSD" }, 
+          { name: "Eggs", price: "40 RSD" },
           { name: "Cheese", price: "70 RSD" },
-          { name: "Green salad", price: "20 RSD" }, 
-          { name: "Tomato", price: "20 RSD" }, 
-          { name: "Pickle", price: "20 RSD" }, 
+          { name: "Green salad", price: "20 RSD" },
+          { name: "Tomato", price: "20 RSD" },
+          { name: "Pickle", price: "20 RSD" },
           { name: "Fried chicken", price: "160 RSD" },
           { name: "Fried zucchini", price: "80 RSD" },
           { name: "Quick salad", price: "50 RSD" },
@@ -139,8 +180,26 @@
 
     const ORDER = ["pica", "kalcone", "stapici", "sendvici", "salate", "dezert", "pice"];
     const TITLES = {
-      sr: { pica:"PICA", kalcone:"KALCONE", stapici:"ŠTAPIĆI", sendvici:"SENDVIČI", salate:"SALATE", dezert:"DEZERT", pice:"PIĆE", cenovnik:"CENOVNIK" },
-      en: { pica:"PIZZA", kalcone:"CALZONE", stapici:"STICKS", sendvici:"SANDWICHES", salate:"SALADS", dezert:"DESSERT", pice:"DRINKS", cenovnik:"PRICE LIST" }
+      sr: {
+        pica:"PICA",
+        kalcone:"KALCONE",
+        stapici:"ŠTAPIĆI",
+        sendvici:"SENDVIČI",
+        salate:"SALATE",
+        dezert:"DEZERT",
+        pice:"PIĆE",
+        cenovnik:"CENOVNIK"
+      },
+      en: {
+        pica:"PIZZA",
+        kalcone:"CALZONE",
+        stapici:"STICKS",
+        sendvici:"SANDWICHES",
+        salate:"SALADS",
+        dezert:"DESSERT",
+        pice:"DRINKS",
+        cenovnik:"PRICE LIST"
+      }
     };
 
     function QuickSendvicaraSimple() {
@@ -167,6 +226,18 @@
             <h2>{TITLES[lang].cenovnik}</h2>
             {ORDER.map((category) => {
               const items = MENU[lang][category];
+
+              if (category === "pica" || category === "kalcone") {
+                const item = items[0];
+                return (
+                  <div key={category} style={{ marginTop:'2rem' }}>
+                    <h3>
+                      {TITLES[lang][category]}
+                      <span className="price">{item.price}</span>
+                    </h3>
+                  </div>
+                );
+              }
 
               return (
                 <div key={category} style={{ marginTop:'2rem' }}>
