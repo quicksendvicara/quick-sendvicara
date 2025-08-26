@@ -113,20 +113,6 @@
           { name: "Pečena paprika", price: "60 RSD" },
           { name: "Italijanska salata", price: "50 RSD" },
           { name: "Ljuta šargarepa", price: "50 RSD" }
-        ],
-        dezert: [
-          { name: "Mafin čokoladni", price: "90 RSD" },
-          { name: "Mafin voćni", price: "90 RSD" }
-        ],
-        pice: [
-          { name: "Voda gazirana 0,5", price: "70 RSD" },
-          { name: "Voda negazirana 0,5", price: "70 RSD" },
-          { name: "Sok negazirani", price: "120 RSD" },
-          { name: "Coca Cola 0,5", price: "120 RSD" },
-          { name: "Fanta 0,5", price: "120 RSD" },
-          { name: "Balans jogurt", price: "90 RSD" },
-          { name: "Jogurt u čašici", price: "50 RSD" },
-          { name: "Čokoladno mleko", price: "80 RSD" }
         ]
       },
       en: {
@@ -160,62 +146,27 @@
           { name: "Roasted pepper", price: "60 RSD" },
           { name: "Italian salad", price: "50 RSD" },
           { name: "Spicy carrot", price: "50 RSD" }
-        ],
-        dezert: [
-          { name: "Chocolate muffin", price: "90 RSD" },
-          { name: "Fruit muffin", price: "90 RSD" }
-        ],
-        pice: [
-          { name: "Sparkling water 0.5", price: "70 RSD" },
-          { name: "Still water 0.5", price: "70 RSD" },
-          { name: "Juice (unsweetened)", price: "120 RSD" },
-          { name: "Coca Cola 0.5", price: "120 RSD" },
-          { name: "Fanta 0.5", price: "120 RSD" },
-          { name: "Balance yogurt", price: "90 RSD" },
-          { name: "Yogurt in cup", price: "50 RSD" },
-          { name: "Chocolate milk", price: "80 RSD" }
         ]
       }
     };
 
-    const ORDER = ["pica", "kalcone", "stapici", "sendvici", "salate", "dezert", "pice"];
+    const ORDER = ["pica", "kalcone", "stapici", "sendvici"];
     const TITLES = {
-      sr: {
-        pica:"PICA",
-        kalcone:"KALCONE",
-        stapici:"ŠTAPIĆI",
-        sendvici:"SENDVIČI",
-        salate:"SALATE",
-        dezert:"DEZERT",
-        pice:"PIĆE",
-        cenovnik:"CENOVNIK"
-      },
-      en: {
-        pica:"PIZZA",
-        kalcone:"CALZONE",
-        stapici:"STICKS",
-        sendvici:"SANDWICHES",
-        salate:"SALADS",
-        dezert:"DESSERT",
-        pice:"DRINKS",
-        cenovnik:"PRICE LIST"
-      }
+      sr: { pica:"PICA", kalcone:"KALCONE", stapici:"ŠTAPIĆI", sendvici:"SENDVIČI" },
+      en: { pica:"PIZZA", kalcone:"CALZONE", stapici:"STICKS", sendvici:"SANDWICHES" }
     };
 
-    function QuickSendvicaraSimple() {
+    function QuickSendvicara() {
       const [lang, setLang] = React.useState("sr");
 
       return (
         <main>
-          <button
-            className="lang-btn-fixed"
-            onClick={() => setLang(lang === "sr" ? "en" : "sr")}
-          >
+          <button className="lang-btn-fixed" onClick={() => setLang(lang === "sr" ? "en" : "sr")}>
             {lang === "sr" ? "English" : "Srpski"}
           </button>
 
           <header>
-            <h1>QUICK {lang === "sr" ? "sendvičara" : "sendvičara"}</h1>
+            <h1>QUICK {lang === "sr" ? "sendvičara" : "sandwich shop"}</h1>
             <div style={{ marginTop:'0.5rem', color:'#388e3c' }}>
               <div>📍 Višegradska 25, Belgrade</div>
               <div><a href="tel:+381113620700">📞 011/3620-700</a></div>
@@ -223,8 +174,9 @@
           </header>
 
           <section id="meni">
-            <h2>{TITLES[lang].cenovnik}</h2>
-            {ORDER.map((category) => {
+            <h2>{lang === "sr" ? "CENOVNIK" : "PRICE LIST"}</h2>
+
+            {ORDER.map(category => {
               const items = MENU[lang][category];
 
               if (category === "pica" || category === "kalcone") {
@@ -239,15 +191,46 @@
                 );
               }
 
+              if (category === "sendvici") {
+                const kifle = items;
+                const prilozi = MENU[lang].salate;
+                return (
+                  <div key={category} style={{ marginTop:'2rem' }}>
+                    <h3>{TITLES[lang][category]}</h3>
+                    <p style={{ margin:'0.5rem 0', fontStyle:'italic', color:'#555' }}>
+                      {lang === "sr" 
+                        ? "Sendviči se prave po vašem izboru kifle i priloga." 
+                        : "Sandwiches are made with your choice of bun and toppings."}
+                    </p>
+
+                    <h4 style={{ marginTop:'1rem', color:'#388e3c' }}>
+                      {lang === "sr" ? "Kifla" : "Bun"}
+                    </h4>
+                    <ul>
+                      {kifle.map(i => (
+                        <li key={i.name}><span>{i.name}</span><span>{i.price}</span></li>
+                      ))}
+                    </ul>
+
+                    <h4 style={{ marginTop:'1rem', color:'#388e3c' }}>
+                      {lang === "sr" ? "Prilozi" : "Toppings"}
+                    </h4>
+                    <ul>
+                      {prilozi.map(i => (
+                        <li key={i.name}><span>{i.name}</span><span>{i.price}</span></li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              }
+
+              // ostale kategorije
               return (
                 <div key={category} style={{ marginTop:'2rem' }}>
                   <h3>{TITLES[lang][category]}</h3>
                   <ul>
-                    {items.map((i) => (
-                      <li key={i.name}>
-                        <span>{i.name}</span>
-                        <span>{i.price}</span>
-                      </li>
+                    {items.map(i => (
+                      <li key={i.name}><span>{i.name}</span><span>{i.price}</span></li>
                     ))}
                   </ul>
                 </div>
@@ -263,7 +246,7 @@
     }
 
     const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<QuickSendvicaraSimple />);
+    root.render(<QuickSendvicara />);
   </script>
 </body>
 </html>
