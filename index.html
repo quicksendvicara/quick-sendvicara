@@ -76,6 +76,105 @@
       background:#ffe5e5;
     }
   </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "QUICK sendvičara",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Višegradska 25",
+    "addressLocality": "Belgrade",
+    "addressCountry": "RS"
+  },
+  "telephone": "+381113620700",
+  "servesCuisine": "Fast food",
+  "hasMenu": {
+    "@type": "Menu",
+    "name": "Meni",
+    "url": "https://tvoj-sajt.com/#meni",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "Pice / Drinks",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Voda gazirana 0,5 / Sparkling water 0.5" },
+          { "@type": "MenuItem", "name": "Voda negazirana 0,5 / Still water 0.5" },
+          { "@type": "MenuItem", "name": "Sok negazirani / Juice (unsweetened)" },
+          { "@type": "MenuItem", "name": "Coca Cola 0,5" },
+          { "@type": "MenuItem", "name": "Fanta 0,5" },
+          { "@type": "MenuItem", "name": "Balans jogurt / Balance yogurt" },
+          { "@type": "MenuItem", "name": "Jogurt u čašici / Yogurt in cup" },
+          { "@type": "MenuItem", "name": "Čokoladno mleko / Chocolate milk" }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Pice / Pizza",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Pizza / Slice / Whole" }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Kalcone / Calzone",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Calzone" }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Štapići / Sticks",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Feta štapić / Feta stick" },
+          { "@type": "MenuItem", "name": "Feta-Kulen štapić / Feta-Kulen stick" }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Sendviči / Sandwiches",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Bela kifla / White bun" },
+          { "@type": "MenuItem", "name": "Crna kifla / Dark bun" }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Salate / Salads",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Šunka / Ham" },
+          { "@type": "MenuItem", "name": "Pršuta / Prosciutto" },
+          { "@type": "MenuItem", "name": "Kulen (spicy sausage)" },
+          { "@type": "MenuItem", "name": "Jaja / Eggs" },
+          { "@type": "MenuItem", "name": "Kačkavalj / Cheese" },
+          { "@type": "MenuItem", "name": "Zelena salata / Green salad" },
+          { "@type": "MenuItem", "name": "Paradajz / Tomato" },
+          { "@type": "MenuItem", "name": "Kiseli krastavac / Pickle" },
+          { "@type": "MenuItem", "name": "Pohovana piletina / Fried chicken" },
+          { "@type": "MenuItem", "name": "Pohovana tikvica / Fried zucchini" },
+          { "@type": "MenuItem", "name": "Kvik salata / Quick salad" },
+          { "@type": "MenuItem", "name": "Pečurke salata / Mushroom salad" },
+          { "@type": "MenuItem", "name": "Goveđa salata / Beef salad" },
+          { "@type": "MenuItem", "name": "Ruska salata / Russian salad" },
+          { "@type": "MenuItem", "name": "Pileća salata / Chicken salad" },
+          { "@type": "MenuItem", "name": "Tuna salata / Tuna salad" },
+          { "@type": "MenuItem", "name": "Pečena paprika / Roasted pepper" },
+          { "@type": "MenuItem", "name": "Italijanska salata / Italian salad" },
+          { "@type": "MenuItem", "name": "Ljuta šargarepa / Spicy carrot" }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Dezert / Dessert",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Mafin čokoladni / Chocolate muffin" },
+          { "@type": "MenuItem", "name": "Mafin voćni / Fruit muffin" }
+        ]
+      }
+    ]
+  }
+}
+</script>
 </head>
 <body>
   <div id="root"></div>
@@ -113,6 +212,20 @@
           { name: "Pečena paprika", price: "60 RSD" },
           { name: "Italijanska salata", price: "50 RSD" },
           { name: "Ljuta šargarepa", price: "50 RSD" }
+          ],
+        dezert: [
+          { name: "Mafin čokoladni", price: "90 RSD" },
+          { name: "Mafin voćni", price: "90 RSD" }
+        ],
+        pice: [
+          { name: "Voda gazirana 0,5", price: "70 RSD" },
+          { name: "Voda negazirana 0,5", price: "70 RSD" },
+          { name: "Sok negazirani", price: "120 RSD" },
+          { name: "Coca Cola 0,5", price: "120 RSD" },
+          { name: "Fanta 0,5", price: "120 RSD" },
+          { name: "Balans jogurt", price: "90 RSD" },
+          { name: "Jogurt u čašici", price: "50 RSD" },
+          { name: "Čokoladno mleko", price: "80 RSD" }
         ]
       },
       en: {
@@ -146,6 +259,20 @@
           { name: "Roasted pepper", price: "60 RSD" },
           { name: "Italian salad", price: "50 RSD" },
           { name: "Spicy carrot", price: "50 RSD" }
+          ],
+        dezert: [
+          { name: "Chocolate muffin", price: "90 RSD" },
+          { name: "Fruit muffin", price: "90 RSD" }
+        ],
+        pice: [
+          { name: "Sparkling water 0.5", price: "70 RSD" },
+          { name: "Still water 0.5", price: "70 RSD" },
+          { name: "Juice (unsweetened)", price: "120 RSD" },
+          { name: "Coca Cola 0.5", price: "120 RSD" },
+          { name: "Fanta 0.5", price: "120 RSD" },
+          { name: "Balance yogurt", price: "90 RSD" },
+          { name: "Yogurt in cup", price: "50 RSD" },
+          { name: "Chocolate milk", price: "80 RSD" }
         ]
       }
     };
